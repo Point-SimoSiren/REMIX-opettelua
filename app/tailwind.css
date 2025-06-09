@@ -2,11 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+/* Globaalit elementtien tyylit */
 body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  @apply min-h-screen bg-gradient-to-b from-blue-100 via-white to-gray-100 text-gray-900 font-sans leading-relaxed antialiased;
 }
+
+a {
+  @apply text-blue-600 underline hover:text-blue-800;
+}
+
+button {
+  @apply bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200;
+}
+
+h1 {
+  @apply text-3xl font-bold mt-6 mb-4;
+}
+
+h2 {
+  @apply text-2xl font-semibold mt-5 mb-3;
+}
+
+h3 {
+  @apply text-xl font-medium mt-4 mb-2;
+}
+
+p {
+  @apply mb-4;
+}
+
+input, textarea, select {
+  @apply border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-300;
+}
+
+

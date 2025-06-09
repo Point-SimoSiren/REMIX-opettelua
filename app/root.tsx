@@ -31,8 +31,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
-        {children}
+      <body className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-gray-100 text-gray-900 font-sans leading-relaxed antialiased">
+        {/* Keskittävä kontti sivun sisällölle */}
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          {children}
+        </div>
+
         <ScrollRestoration />
         <Scripts />
       </body>
