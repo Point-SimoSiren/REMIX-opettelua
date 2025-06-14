@@ -1,62 +1,17 @@
 import { Link } from "@remix-run/react"
-import { json } from "@remix-run/node";
 import { useFetcher } from "@remix-run/react";
-import React, {useState} from "react";
+import {useState, useEffect} from "react";
+import { json } from "@remix-run/node";
+import fs from "fs/promises";
+import path from "path";
 
 // SERVER
 
 export const action = async () => {
-  // Palautetaan jotain JSON-dataa
-  return json([
-  {
-    "id": 1,
-    "brand": "Toyota",
-    "model": "Corolla",
-    "year": 2018,
-    "color": "Silver",
-    "mileage": 85000
-  },
-  {
-    "id": 2,
-    "brand": "Volkswagen",
-    "model": "Golf",
-    "year": 2020,
-    "color": "Blue",
-    "mileage": 42000
-  },
-  {
-    "id": 3,
-    "brand": "Ford",
-    "model": "Focus",
-    "year": 2017,
-    "color": "Black",
-    "mileage": 99000
-  },
-  {
-    "id": 4,
-    "brand": "BMW",
-    "model": "3 Series",
-    "year": 2021,
-    "color": "White",
-    "mileage": 25000
-  },
-  {
-    "id": 5,
-    "brand": "Honda",
-    "model": "Civic",
-    "year": 2019,
-    "color": "Red",
-    "mileage": 64000
-  },
-  {
-    "id": 6,
-    "brand": "Hyundai",
-    "model": "i30",
-    "year": 2020,
-    "color": "Gray",
-    "mileage": 37000
-  }]
-)};
+  const filePath = path.join(process.cwd(), "app", "data", "autot.json");
+  const data = await fs.readFile(filePath, "utf-8");
+  return json(JSON.parse(data));
+};
 
 // CLIENT
 
@@ -65,16 +20,13 @@ export const action = async () => {
 function Autot() {
 
   const [autot, setAutot] = useState([]);
+  const fetcher = useFetcher();
 
-    const fetcher = useFetcher();
-    const handleClick = () => {
-    fetcher.submit(null, { method: "post" });
-  };
-
-  // Jos dataa on tullut palvelimelta
-  if (fetcher.data) {
-   setAutot(fetcher.data);
-  }
+  useEffect(() => {
+    if (fetcher.data) {
+      setAutot(fetcher.data);
+    }
+  }, [fetcher.data]);
 
 return(
         <>
@@ -90,7 +42,7 @@ return(
             <br />
 
 
-             <fetcher.Form method="post">
+             <fetcher.Form method="post" action="/autot">
                 <button type="submit">Hae JSON palvelimelta</button>
              </fetcher.Form>
             

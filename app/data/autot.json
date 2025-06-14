@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "year": 2018,
+    "color": "Silver",
+    "mileage": 85000
+  },
+  {
+    "id": 2,
+    "brand": "Volkswagen",
+    "model": "Golf",
+    "year": 2020,
+    "color": "Blue",
+    "mileage": 42000
+  },
+  {
+    "id": 3,
+    "brand": "Ford",
+    "model": "Focus",
+    "year": 2017,
+    "color": "Black",
+    "mileage": 99000
+  },
+  {
+    "id": 4,
+    "brand": "BMW",
+    "model": "3 Series",
+    "year": 2021,
+    "color": "White",
+    "mileage": 25000
+  },
+  {
+    "id": 5,
+    "brand": "Honda",
+    "model": "Civic",
+    "year": 2019,
+    "color": "Red",
+    "mileage": 64000
+  },
+  {
+    "id": 6,
+    "brand": "Hyundai",
+    "model": "i30",
+    "year": 2020,
+    "color": "Gray",
+    "mileage": 37000
+  },
+  {
+    "brand": null,
+    "model": null,
+    "year": null,
+    "color": null,
+    "mileage": null
+  },
+  {
+    "brand": null,
+    "model": null,
+    "year": null,
+    "color": null,
+    "mileage": null
+  }
+]
